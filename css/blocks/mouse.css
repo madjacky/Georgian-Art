@@ -1,0 +1,77 @@
+.mouse {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 45px;
+    height: 45px;
+    border-radius: 100%;
+    z-index: 9999999;
+    pointer-events: none;
+}
+
+.mouse::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 35px;
+    height: 35px;
+    z-index: 2;
+    border-radius: 100%;
+    background: #D7D7D7;
+    box-shadow: 4px 4px 4px #CCCACA;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.mouse::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 55px;
+    height: 55px;
+    border-radius: 100%;
+    background: #CDCDCD;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.mouse__view {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 75px;
+    height: 75px;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000000;
+    border-radius: 100%;
+    font-size: 18px;
+    line-height: 18px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.view-visible .mouse__view {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.links-visible::before {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.links-visible::after {
+    border: 4px solo #cdcdcd;
+    transform: translate(-50%, -50%) scale(0.5);
+    background-color: transparent;
+    transition: 0.3s;
+}
